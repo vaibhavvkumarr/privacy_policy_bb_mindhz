@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Binaural Beats MindHz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #07060f;
+      --surface:   #0f0e1c;
+      --border:    rgba(124, 58, 237, 0.18);
+      --purple:    #7c3aed;
+      --violet:    #a78bfa;
+      --glow:      rgba(124, 58, 237, 0.35);
+      --text:      #e8e4f0;
+      --muted:     rgba(232,228,240,0.55);
+      --accent:    #c4b5fd;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Starfield background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(124,58,237,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(99,102,241,0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Noise grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout wrapper ── */
+    .page { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* ── Hero header ── */
+    header {
+      text-align: center;
+      padding: 72px 0 56px;
+      position: relative;
+    }
+
+    .logo-ring {
+      width: 80px; height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #7c3aed, #a78bfa, #6366f1, #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 40px rgba(124,58,237,0.5);
+      animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .logo-inner {
+      width: 66px; height: 66px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #e8e4f0 20%, #a78bfa 60%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    header .sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      padding: 6px 16px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    .badge span { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; display: inline-block; box-shadow: 0 0 6px #4ade80; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--purple), transparent);
+      margin: 0 0 52px;
+      opacity: 0.5;
+    }
+
+    /* ── Intro callout ── */
+    .intro {
+      background: rgba(124,58,237,0.08);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::before {
+      content: '🎧';
+      position: absolute;
+      top: -12px; right: 20px;
+      font-size: 56px;
+      opacity: 0.08;
+    }
+
+    /* ── Section cards ── */
+    section {
+      margin-bottom: 28px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(135deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 100%);
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      border-color: rgba(124,58,237,0.3);
+      box-shadow: 0 8px 40px rgba(124,58,237,0.12);
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 22px 26px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .sec-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(167,139,250,0.2);
+    }
+
+    .sec-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .sec-body {
+      padding: 22px 26px 26px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .sec-body p + p { margin-top: 12px; }
+
+    .sec-body ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .sec-body ul li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .sec-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--violet);
+    }
+
+    .sec-body strong { color: var(--text); font-weight: 500; }
+
+    /* ── Highlight pill ── */
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 99px;
+      background: rgba(124,58,237,0.25);
+      border: 1px solid rgba(167,139,250,0.25);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ── Contact block ── */
+    .contact-card {
+      margin-top: 40px;
+      padding: 30px 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(99,102,241,0.08) 100%);
+      border: 1px solid rgba(167,139,250,0.25);
+      text-align: center;
+    }
+
+    .contact-card p { color: var(--muted); font-size: 0.93rem; margin-top: 8px; }
+
+    .contact-card a {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 32px;
+      border-radius: 12px;
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+    }
+
+    .contact-card a:hover {
+      background: #6d28d9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(124,58,237,0.55);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      color: rgba(232,228,240,0.3);
+      font-size: 0.8rem;
+      line-height: 1.9;
+    }
+
+    footer strong { color: rgba(232,228,240,0.5); }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .sec-header { padding: 18px 18px 16px; }
+      .sec-body   { padding: 18px 18px 22px; }
+      header      { padding: 48px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <header class="reveal">
+    <div class="logo-ring">
+      <div class="logo-inner">🎧</div>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="sub">Binaural Beats MindHz</p>
+    <div class="badge"><span></span> Effective Date: May 1, 2026</div>
+  </header>
+
+  <div class="divider reveal"></div>
+
+  <!-- ── INTRO ── -->
+  <div class="intro reveal">
+    Welcome to <strong>Binaural Beats MindHz</strong>. Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application. By using the App, you agree to the practices described in this policy. Please read it carefully.
+  </div>
+
+  <!-- ── SECTION 1 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">📋</div>
+      <h2>1. Information We Collect</h2>
+    </div>
+    <div class="sec-body">
+      <p>We are committed to minimising data collection. Here is what we do and do not collect:</p>
+      <ul>
+        <li><strong>Favourites Data:</strong> Songs you mark as favourites are stored <span class="pill">locally on your device</span> using SharedPreferences. This data never leaves your device.</li>
+        <li><strong>Reminder Preferences:</strong> Your in-app reminder settings (interval hours and minutes) are stored locally on your device and are not transmitted to any server.</li>
+        <li><strong>Song Data:</strong> The app fetches a list of audio tracks and images from a remote JSON source hosted by the developer. This is a read-only fetch — no personal data is sent with this request.</li>
+        <li><strong>No Account Required:</strong> We do not ask you to create an account, log in, or provide any personal identification information.</li>
+        <li><strong>No Analytics:</strong> We do not use any third-party analytics, crash-reporting SDKs, or tracking libraries in the current version of the app.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🎵</div>
+      <h2>2. Audio & Media Content</h2>
+    </div>
+    <div class="sec-body">
+      <p>All audio tracks and cover images are hosted on <strong>Cloudinary</strong>, a third-party cloud media platform. When the app streams audio or loads images, your device makes a standard HTTPS request to Cloudinary's servers.</p>
+      <p>Cloudinary may collect standard server-side logs (such as IP addresses and request timestamps) in accordance with their own privacy policy. We do not receive or store any personal information from these requests. You may review Cloudinary's privacy practices at <strong>cloudinary.com</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🔗</div>
+      <h2>3. Third-Party Links & External Services</h2>
+    </div>
+    <div class="sec-body">
+      <p>The app contains links to the following external platforms. When you tap these links, you will be taken outside the app and subject to that platform's own privacy policy:</p>
+      <ul>
+        <li><strong>YouTube</strong> — youtube.com/@mr.informative</li>
+        <li><strong>Instagram</strong> — instagram.com/mrinformative</li>
+        <li><strong>Razorpay</strong> — used for optional donations (rzp.io). Razorpay independently handles any payment data.</li>
+        <li><strong>Google Forms</strong> — used for partnership enquiries. Data you submit is governed by Google's Privacy Policy.</li>
+        <li><strong>Developer's Website</strong> — product listing page hosted by the developer.</li>
+      </ul>
+      <p>We are not responsible for the privacy practices of these external services and encourage you to review their respective policies.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🔔</div>
+      <h2>4. In-App Reminders</h2>
+    </div>
+    <div class="sec-body">
+      <p>The app includes an optional in-app reminder feature. When enabled, a periodic timer fires a <span class="pill">SnackBar notification</span> <em>within the app</em> while it is open and in the foreground.</p>
+      <p><strong>This feature does not use Android's system notification service.</strong> No push notifications are sent to your device, and no notification permission is requested. Reminder preferences are stored only on your device and are never transmitted.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🛡️</div>
+      <h2>5. Data Storage & Security</h2>
+    </div>
+    <div class="sec-body">
+      <p>All data generated by your use of the app (favourites list, reminder settings) is stored exclusively on your local device via the operating system's secure SharedPreferences storage. We do not operate any servers that store personal user data.</p>
+      <p>You can clear all locally stored app data at any time through your device's <strong>Settings → Apps → Binaural Beats → Clear Data</strong> option.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">👶</div>
+      <h2>6. Children's Privacy</h2>
+    </div>
+    <div class="sec-body">
+      <p>Binaural Beats MindHz is intended for a general audience. The app does not knowingly collect any personal information from children under the age of 13.</p>
+      <p>Because the app does not collect any personal data from any user, it presents no special risk to children. If you believe your child has provided any personal information through an external link within the app, please contact that platform directly.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 7 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🌍</div>
+      <h2>7. Permissions Requested</h2>
+    </div>
+    <div class="sec-body">
+      <p>The app may request the following Android permissions:</p>
+      <ul>
+        <li><strong>INTERNET</strong> — Required to stream audio tracks and load cover images from remote servers.</li>
+        <li><strong>FOREGROUND_SERVICE / WAKE_LOCK</strong> — May be requested by the audio player library to maintain audio playback when the screen is off. No personal data is accessed through this permission.</li>
+      </ul>
+      <p>No other sensitive permissions (camera, microphone, contacts, location, storage) are requested or used.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 8 ── -->
+  <section class="reveal">
+    <div class="sec-header">
+      <div class="sec-icon">🔄</div>
+      <h2>8. Changes to This Policy</h2>
+    </div>
+    <div class="sec-body">
+      <p>We may update this Privacy Policy from time to time to reflect changes in the app's features or applicable law. When we do, the <strong>Effective Date</strong> at the top of this page will be updated accordingly.</p>
+      <p>We encourage you to review this page periodically. Your continued use of the app after any changes constitutes acceptance of the updated policy. Material changes will be communicated through an update notice in the app or on the Play Store listing.</p>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <div class="contact-card reveal">
+    <div style="font-size:2rem;margin-bottom:6px;">📬</div>
+    <h2 style="font-family:'Cinzel',serif;font-size:1.15rem;color:var(--accent);letter-spacing:0.04em;">Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out through our Instagram page. We typically respond within 24 business hours.</p>
+    <a href="https://www.instagram.com/mrinformative/" target="_blank" rel="noopener">Contact via Instagram</a>
+    <p style="margin-top:14px;font-size:0.8rem;color:rgba(232,228,240,0.3);">Developer: Vaibhav Kumar &nbsp;·&nbsp; instagram.com/vaibhavvkumar</p>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="reveal">
+    <p><strong>Binaural Beats MindHz</strong></p>
+    <p>Made with ❤️ in India &nbsp;·&nbsp; © 2026 Mr. Informative. All rights reserved.</p>
+    <p style="margin-top:6px;">This page is provided solely for the purpose of Google Play Store compliance and user transparency.</p>
+  </footer>
+
+</div>
+
+<!-- ── Scroll reveal script ── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.04}s`;
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
